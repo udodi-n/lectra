@@ -10,10 +10,12 @@ import Banner from './Banner'
     function Edit() {
     const [time, setTime] = useState('')
     const [finish, setFinish] = useState('')
+    const [date, setDate] = useState('')
     const { id } = useParams()
     const navigate = useNavigate();
     const[option, setOption] = useState("")
     const[lecturer, setLecturer] = useState("")
+    const [nextdate, setNextDate] = useState('')
     const[value, setValue] = useState("")
 
     useEffect(() => {
@@ -26,7 +28,10 @@ import Banner from './Banner'
                 setFinish(snap.endTime)
                 setLecturer(snap.lecturer)
                 setOption(snap.code)
+                setNextDate(snap.nextDate)
+                setDate(snap.lectureDate)
                 setValue(snap.location)
+
             } else {
                 console.log("try again bro")
             }
@@ -45,13 +50,21 @@ import Banner from './Banner'
     }
 
     function updateLectureEntry(e) {
-        e.preventDefault()
+            e.preventDefault()
+
+            const now = new Date(date)
+            const tomorrow = new Date(now)
+            const uhh = tomorrow.setDate(now.getDate() + 1);
+            const tomorrowString = tomorrow.toLocaleDateString('en-CA') 
+
         updateDoc(doc(db, "lectures", id), {
             code: option,
             course: courses[option].code,
             startTime: time, 
             endTime: finish,
+            lectureDate: date,
             lecturer: lecturer,
+            nextDate: tomorrowString,
             location: value
         })
         navigate('/admin/lectures')
@@ -106,6 +119,12 @@ import Banner from './Banner'
                                required
                                />
                             </div>
+                            <input type="date"
+                            onChange={(e) => {
+                                const selected = e.target.value
+                                setDate(selected)}} 
+                            value={date}
+                            />
                     <select onChange={(e) => setValue(e.target.value)}
                     value={value}
                         className="w-full p-2 focus:outline-none border-1 border-[#1c1c1c]"

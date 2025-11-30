@@ -1,5 +1,5 @@
 import Banner from './Banner'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { db, auth } from './firebase'
 import { getDoc, setDoc, doc, collection, serverTimestamp } from 'firebase/firestore' 
@@ -8,6 +8,8 @@ import { getDoc, setDoc, doc, collection, serverTimestamp } from 'firebase/fires
 function LecturePost() {
     
     const [time, setTime] = useState('')
+    const [date, setDate] = useState('')
+    const [nextdate, setNextDate] = useState('')
     const [finish, setFinish] = useState('')
     const lecture = collection(db, "lectures")
     const newRef = doc(lecture)
@@ -19,6 +21,10 @@ function LecturePost() {
     const[value, setValue] = useState("")
 
     const lectureEntry = (e) => {
+        // const newDate = new Date(date)
+        // const day = newDate.getDay()
+        // const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        // const dayName= daysOfWeek[day]
         e.preventDefault()
         setDoc(newRef, {
             code: option,
@@ -28,10 +34,23 @@ function LecturePost() {
             startTime: time,
             endTime: finish,
             createdAt: serverTimestamp(),
+            lectureDate: date,
+            // day: dayName,
+            nextDate: nextdate,
             editId: id
         })
 
         navigate('/admin/lectures')
+
+    }
+
+    function setTomorrow(selectedOption) {
+            const now = new Date(selectedOption)
+            const tomorrow = new Date(now)
+            const uhh = tomorrow.setDate(now.getDate() + 1);
+            const setTom = tomorrow.toLocaleDateString('en-CA')
+            setNextDate(setTom)
+            console.log(setTom)
 
     }
 
@@ -104,6 +123,12 @@ function LecturePost() {
                                required
                                />
                             </div>
+                            <input type="date"
+                            onChange={(e) => {
+                                const selected = e.target.value
+                                setDate(selected); setTomorrow(selected)}}
+                            value={date}
+                            />
                     <select onChange={(e) => {setValue(e.target.value); checkSomething()}} 
                     value={value}
                      className="w-full p-2 focus:outline-none border-1 border-[#1c1c1c]"
