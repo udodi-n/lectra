@@ -5,7 +5,7 @@ const AdminNav = () => {
     const [route, setRoute] = useState("")
     const navigate = useNavigate()
     return (
-        <div className=" bg-[#1c1c1c] min-h-screen flex flex-col text-white font-[Instrument_Sans] items-center">
+        <div className=" bg-[#1c1c1c] min-h-screen flex flex-col text-white font-[Google_Sans_Flex] items-center">
             {/* Header Start */}
             <div className=" w-full p-4 flex justify-center items-center">
                 <h1 className='text-5xl font-[Instrument_Serif]'>Admin <span className="underline">Navigation</span></h1>

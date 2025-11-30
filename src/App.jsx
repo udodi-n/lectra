@@ -13,6 +13,7 @@ import Edit from './Edit'
 import LecturePost from './LecturePost'
 import Lectures from './Lectures'
 import Banner from './Banner'
+import About from './About'
 
 function App() {
     const { id } = useParams()
@@ -41,6 +42,7 @@ function App() {
         <Route path='/admin/lectures/edit/:id' element={<Edit />} />
         </>
       )}
+      <Route path = '/about' element={<About />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   </div>

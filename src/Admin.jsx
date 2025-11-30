@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from './firebase'
 
 const Admin = () => {
@@ -8,6 +8,27 @@ const Admin = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
+    const [user, setCurrentUser] = useState(null)
+
+    useEffect(() => {
+      const unsub = onAuthStateChanged(auth, (currentUser) => {
+        setCurrentUser(currentUser)
+        console.log(user)
+      })
+
+      return unsub;
+    }, [])
+
+    useEffect(() => {
+        function checkUser() {
+            if(user && user.email==="itsudodi@gmail.com") {
+                console.log('ola')
+                navigate('/admin/home')
+            }
+        } 
+
+        return checkUser()
+    }, [user])
 
         const handleLogin = async (e) => {
             e.preventDefault() 
@@ -33,7 +54,7 @@ const Admin = () => {
                      className="w-full border-1 border-white p-2 px-3 focus:outline-none"
                      placeholder="Email"
                      type="email"
-                     onChange={e => setEmail(e.target.value)}
+                     onChange={e => {setEmail(e.target.value); console.log(user)}}
                      value={email}
                      autoComplete="username"
                      required

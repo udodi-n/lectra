@@ -8,7 +8,9 @@ import Banner from './Banner'
     
 
     function Edit() {
-        const { id } = useParams()
+    const [time, setTime] = useState('')
+    const [finish, setFinish] = useState('')
+    const { id } = useParams()
     const navigate = useNavigate();
     const[option, setOption] = useState("")
     const[lecturer, setLecturer] = useState("")
@@ -20,6 +22,8 @@ import Banner from './Banner'
             if (fill.exists()){
                 const snap = fill.data();
                 console.log(snap)
+                setTime(snap.startTime)
+                setFinish(snap.endTime)
                 setLecturer(snap.lecturer)
                 setOption(snap.code)
                 setValue(snap.location)
@@ -45,6 +49,8 @@ import Banner from './Banner'
         updateDoc(doc(db, "lectures", id), {
             code: option,
             course: courses[option].code,
+            startTime: time, 
+            endTime: finish,
             lecturer: lecturer,
             location: value
         })
@@ -83,7 +89,23 @@ import Banner from './Banner'
                             </option>
                         ))}
                     </select>
-
+                    <div className='w-full flex justify-around items-center'>
+                               <input 
+                               type="time"
+                               value={time}
+                               onChange={(e) => setTime(e.target.value)}
+                                className="border border-[#1c1c1c] rounded-xl p-2 w-[110px] text-center"
+                               required
+                               />
+                               <p>to</p>
+                               <input 
+                               type="time"
+                               value={finish}
+                               onChange={(e) => setFinish(e.target.value)}
+                                className="border border-[#1c1c1c] rounded-xl p-2 w-[110px] text-center"
+                               required
+                               />
+                            </div>
                     <select onChange={(e) => setValue(e.target.value)}
                     value={value}
                         className="w-full p-2 focus:outline-none border-1 border-[#1c1c1c]"

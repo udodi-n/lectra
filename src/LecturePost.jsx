@@ -2,17 +2,20 @@ import Banner from './Banner'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { db, auth } from './firebase'
-import { getDoc, setDoc, doc, collection } from 'firebase/firestore' 
+import { getDoc, setDoc, doc, collection, serverTimestamp } from 'firebase/firestore' 
+
 
 function LecturePost() {
-
+    
+    const [time, setTime] = useState('')
+    const [finish, setFinish] = useState('')
     const lecture = collection(db, "lectures")
     const newRef = doc(lecture)
     const navigate = useNavigate()
     const id = newRef.id
     const [disable, setDisable] = useState(true)
     const[option, setOption] = useState("")
-    const[lecturer, setLecturer] = useState("")
+    const[lecturer, setLecturer] = useState("") 
     const[value, setValue] = useState("")
 
     const lectureEntry = (e) => {
@@ -22,11 +25,19 @@ function LecturePost() {
             course: courses[option].code,
             location: value,
             lecturer: lecturer,
+            startTime: time,
+            endTime: finish,
+            createdAt: serverTimestamp(),
             editId: id
         })
 
         navigate('/admin/lectures')
 
+    }
+
+    function checkSomething() {
+        // console.log(time)
+        // setFinish(time) 
     }
 
     const courses = {
@@ -45,7 +56,7 @@ function LecturePost() {
     }
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-[#1c1c1c] font-[Instrument_Sans]  ">
+        <div className="flex justify-center items-center min-h-screen bg-[#1c1c1c] font-[Google_Sans_Flex]  ">
             {/* Post Card Start */}
             <div className='h-160 w-4/5 flex flex-col bg-white rounded-4xl justify-center items-center overflow-hidden '>
                 <Banner
@@ -76,8 +87,24 @@ function LecturePost() {
                             </option>
                         ))}
                     </select>
-
-                    <select onChange={(e) => setValue(e.target.value)}
+                            <div className='w-full flex justify-around items-center'>
+                               <input 
+                               type="time"
+                               value={time}
+                               onChange={(e) => setTime(e.target.value)}
+                                className="border border-[#1c1c1c] rounded-xl p-2 w-[110px] text-center"
+                               required
+                               />
+                               <p>to</p>
+                               <input 
+                               type="time"
+                               value={finish}
+                               onChange={(e) => setFinish(e.target.value)}
+                                className="border border-[#1c1c1c] rounded-xl p-2 w-[110px] text-center"
+                               required
+                               />
+                            </div>
+                    <select onChange={(e) => {setValue(e.target.value); checkSomething()}} 
                     value={value}
                      className="w-full p-2 focus:outline-none border-1 border-[#1c1c1c]"
                         >
