@@ -46,7 +46,6 @@ const Lectures = () => {
                 {posts.map(post => {
                     return (
                         <div key={post.editId} className="relative h-80 w-6/10 bg-white rounded-2xl overflow-hidden text-white">
-                            {console.log(post.editId)}
                         <Banner 
                         image={courses[post.code]?.source} 
                         className="z-10 h-[100%] w-full "

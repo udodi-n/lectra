@@ -69,10 +69,7 @@ function LecturePost() {
         gst111: {"code": "Communication in English: GST 111", "lecturer": "Dr. Ugochukwu", "source":"/english.jpg"}
     }
 
-    function handleChange(selectedOption) {
-        console.log("i like to move it move it")
-        console.log(selectedOption)      
-    }
+ 
 
     return (
         <div className="flex justify-center items-center min-h-screen bg-[#1c1c1c] font-[Google_Sans_Flex]  ">
@@ -94,7 +91,6 @@ function LecturePost() {
                         const selected = e.target.value
                         setOption(selected);
                         setLecturer(courses[selected].lecturer); 
-                        handleChange(courses[selected].lecturer);
                     }}
                         value={option}>
                             <option value="">--Select a course--</option>
