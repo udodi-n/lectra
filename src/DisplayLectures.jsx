@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Banner from './Banner' 
 
 const DisplayLectures = () => {
+    const [network, setNetwork] = useState(true)
         const [posts, setPosts] = useState([])  
         const courses = {
             cs: {"source": "/cs.jpg"},
@@ -31,8 +32,9 @@ const DisplayLectures = () => {
             );
             const updatePosts = onSnapshot(q, (snapshot) => {
             const postArray = snapshot.docs.map( doc => ({id: doc.id, ...doc.data()}));
-            setPosts(postArray)}
-            )
+            setPosts(postArray);
+        }
+    );
         return () => updatePosts()
         }, [])  
     return (
@@ -43,7 +45,7 @@ const DisplayLectures = () => {
             })}
                         {posts.map(post => (
                                 <div key={post.editId} className="w-full flex flex-col items-center">
-                                    <p className="w-4/5 py-5">Date: {post.lectureDate}</p>
+                                    <p className="w-4/5 py-5 font-[Jetbrains_Mono]">Date: {post.lectureDate}</p>
                                     <div className="aspect-1/1 relative sm:w-3/5 w-4/5 md:w-4/10 bg-white rounded-2xl overflow-hidden text-white">
                                     <Banner
                                     image={courses[post.code]?.source}
@@ -62,6 +64,11 @@ const DisplayLectures = () => {
                                     </div>
                                 </div>
                         ))}
+                        {/* <div className='flex h-screen z-100 flex-col absolute justify-center items-center'>
+                            <p className="">NETWORK_ERROR</p>
+                            <p>Reload or try again later</p>
+                            </div> */}
+
                     </div>
     )
 }
