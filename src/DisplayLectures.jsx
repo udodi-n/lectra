@@ -26,8 +26,7 @@ const DisplayLectures = () => {
             
             const q = query(
                 collection(db, "lectures"),
-                where("lectureDate", "==", nowString),
-                where("nextDate", "==", tomorrowString),
+                where("lectureDate", "in", [nowString, tomorrowString]),
                 orderBy("createdAt", "desc")
             );
             const updatePosts = onSnapshot(q, (snapshot) => {
