@@ -17,6 +17,7 @@ import Banner from './Banner'
     const[lecturer, setLecturer] = useState("")
     const [nextdate, setNextDate] = useState('')
     const[value, setValue] = useState("")
+    const [status, setStatus] = useState("")
     const [confirm, setConfirm] = useState(false)
 
     useEffect(() => {
@@ -89,6 +90,7 @@ import Banner from './Banner'
           </div>
             {/* Post Card Start */}
             <div className='relative aspect-9/16 w-4/5 flex flex-col bg-white rounded-4xl justify-center items-center overflow-hidden '>
+
               <img onClick={() => setConfirm(true)} src="/delete.png" className="p-3 rounded-full bg-white absolute top-10 right-10"/>
                 <Banner
                 image={courses[option]?.source}
@@ -148,6 +150,7 @@ import Banner from './Banner'
                         <option value="Hall B">Hall B</option>
                         <option value="Hall A">Hall A</option> 
                         <option value="FANS">FANS</option>
+                        <option value="Computer Lab">Computer Lab</option>
                     </select>
 
                     <input 

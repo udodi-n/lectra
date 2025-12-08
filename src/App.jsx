@@ -13,6 +13,7 @@ import Edit from './Edit'
 import LecturePost from './LecturePost'
 import Lectures from './Lectures'
 import Banner from './Banner'
+import Book from './Book'
 import About from './About'
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route path = '/admin/assignments' element = {<Assignments />} />
         <Route path = '/admin/lectures/post' element = {<LecturePost />} />
         <Route path='/admin/lectures/edit/:id' element={<Edit />} />
+        <Route path = '/admin/books' element={<Book />} />
         </>
       )}
       <Route path = '/about' element={<About />} />

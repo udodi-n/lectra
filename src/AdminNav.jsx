@@ -38,9 +38,9 @@ const AdminNav = () => {
                     {/* Lecture Section Start*/}
                     <div className="border-1 border-white flex justify-around w-full items-center">
                         <h2 className='text-3xl'
-                        onClick={() => setRoute("books")}
+                       
                         >Book Prices</h2>
-                        <h2 className="text-3xl">→</h2>
+                        <h2 className="text-3xl" onClick={() => navigate('/admin/books')}>→</h2>
                     </div>
                     {/* Lecture Section End */}
                 

@@ -17,6 +17,31 @@ const DisplayLectures = () => {
             gst111: {"source":"/english.jpg"}
 }
         const [date, setDate] = useState(new Date())
+
+        // useEffect(() => {
+        //     const windowUpdate = []
+        //     function handleScroll() {
+        //         windowUpdate.push(window.scrollY)
+        //         console.log(windowUpdate)
+        //     }
+        //     window.addEventListener("scroll", handleScroll) 
+            
+        //     return () => window.removeEventListener("scroll", handleScroll)
+        // }, [])
+
+        useEffect(() => {
+                function updateStatus() {
+                    const now = new Date();
+                    const nowTime = now.getTime();
+
+                    const q = query (
+                        collection(db, "lectures"),
+                        where("startTimeStamp", "<=", nowTime),
+                        where("endTimeStamp", ">", nowTime)
+                    )
+                }
+                
+        })
     
         useEffect(() => {
             const now = new Date()
@@ -40,22 +65,21 @@ const DisplayLectures = () => {
     return (
         <div className="mt-20 w-full min-h-screen flex flex-col justify-center items-center gap-7 py-10 overflow-y-auto text-white">
             <h2 className='text-3xl underline'>Lectures</h2>
-            {posts.map(post => {
-                return
-            })}
                         {posts.map(post => (
-                                <div key={post.editId} className="w-full flex flex-col items-center">
-                                    <p className="w-4/5 py-5 font-[Jetbrains_Mono]">Date: {post.lectureDate}</p>
-                                    <div className="aspect-1/1 relative sm:w-3/5 w-4/5 md:w-4/10 bg-white rounded-2xl overflow-hidden text-white">
+                                <div key={post.editId} className="w-full grid place-items-center">
+                                    <p className=" py-5 font-[Jetbrains_Mono] sm:w-3/5 w-3/5 md:w-4/10 rounded-2xl overflow-hidden text-white p-2">Date: {post.lectureDate}</p>
+                                    <div className="h-fit sm:w-3/5 w-3/5 md:w-4/10 bg-white rounded-2xl overflow-hidden text-white p-2">
                                     <Banner
                                     image={courses[post.code]?.source}
-                                    className="z-10 h-[100%] w-full "
-                                    imgClassName="h-full w-full object-cover"
+                                    className="min-h-20 max-h-40 w-full border rounded-[16px] overflow-hidden "
+                                    imgClassName=" w-full object-cover object-center"
                                     />
-                                    <div className="z-20 absolute bottom-0 left-0 w-full h-[40%] mx-auto p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/90 flex flex-col justify-center h-fit">
-                                         <div className="w-4/5 flex flex-col ">
+                                    <div className="relative w-full mx-auto py-5 rounded-2xl flex flex-col justify-center px-2 items-start h-fit text-black">
+                                        <div className="absolute w-7/20 h-4 bg-black top-0 grid place-items-center text-[8px] right-0 my-5 mx-2 rounded-full text-white"> {post.status}</div>
+                                    
+                                         <div className="w-full flex flex-col ">
                                              <h1 className="underline text-xl font-bold">{post.course}</h1>
-                                             <div className='flex justify-start bg-[#1c1c1c] w-fit px-2 my-2 rounded-3xl '><h1>{post.startTime} to {post.endTime}</h1>
+                                             <div className='flex justify-start bg-[#1c1c1c] w-fit px-2 my-2 text-white rounded-3xl '><h1>{post.startTime} to {post.endTime}</h1>
                                              </div>
                                              <h1 >{post.location}</h1>
                                              <h1>{post.lecturer}</h1>

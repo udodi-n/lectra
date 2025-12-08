@@ -26,6 +26,12 @@ function LecturePost() {
         // const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         // const dayName= daysOfWeek[day]
         e.preventDefault()
+        const getStartTime = new Date(`${date}T${time}`)
+        const getEndTime = new Date(`${date}T${finish}`)
+
+        const startTimeStamp = getStartTime.getTime();
+        const endTimeStamp = getEndTime.getTime();
+
         setDoc(newRef, {
             code: option,
             course: courses[option].code,
@@ -37,7 +43,10 @@ function LecturePost() {
             lectureDate: date,
             // day: dayName,
             nextDate: nextdate,
-            editId: id
+            startTimeStamp: startTimeStamp,
+            endTimeStamp: endTimeStamp,
+            editId: id,
+            status: "Coming up"
         })
 
         navigate('/admin/lectures')
@@ -60,7 +69,7 @@ function LecturePost() {
     }
 
     const courses = {
-        cs: {"code": "CST", "lecturer": "Mr Kingsley Maduabuchi", "source": "/cs.jpg"},
+        cs: {"code": "CST", "lecturer": "Dr Kingsley Maduabuchi", "source": "/cs.jpg"},
         phy101: {"code": "Physics 101", "lecturer": "Dr Kingsley", "source": "/phy101.jpg"},
         chem101: {"code": "Chem 101", "lecturer": "Dr. Ikeh", "source": "/chem101.jpg"},
         gst121: {"code": "Use of Library: GST 121", "lecturer": "Sir Opah", "source": "/lib.jpg"},
@@ -133,6 +142,7 @@ function LecturePost() {
                         <option value="Hall B">Hall B</option>
                         <option value="Hall A">Hall A</option> 
                         <option value="FANS">FANS</option>
+                        <option value="Computer Lab">Computer Lab</option>
                     </select>
 
                     <input 
