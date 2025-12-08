@@ -46,7 +46,8 @@ function LecturePost() {
             startTimeStamp: startTimeStamp,
             endTimeStamp: endTimeStamp,
             editId: id,
-            status: "Coming up"
+            status: "Coming up",
+            statusValue: "coming_up"
         })
 
         navigate('/admin/lectures')
