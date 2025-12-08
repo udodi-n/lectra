@@ -53,6 +53,12 @@ import Banner from './Banner'
     function updateLectureEntry(e) {
             e.preventDefault()
 
+            const getStartTime = new Date(`${date}T${time}`)
+            const getEndTime = new Date(`${date}T${finish}`)
+
+            const startTimeStamp = getStartTime.getTime();
+            const endTimeStamp = getEndTime.getTime();
+
             const now = new Date(date)
             const tomorrow = new Date(now)
             const uhh = tomorrow.setDate(now.getDate() + 1);
@@ -66,7 +72,9 @@ import Banner from './Banner'
             lectureDate: date,
             lecturer: lecturer,
             nextDate: tomorrowString,
-            location: value
+            location: value,
+            startTimeStamp: startTimeStamp,
+            endTimeStamp: endTimeStamp
         })
         navigate('/admin/lectures')
     }

@@ -45,7 +45,7 @@ const Lectures = () => {
             <div className="w-full min-h-screen flex flex-col justify-center items-center gap-7 py-10 overflow-y-auto">
                 {posts.map(post => {
                     return (
-                        <div key={post.editId} className="relative min-h-60 max-h-120 w-6/10 bg-white rounded-[24px] overflow-hidden text-white flex flex-col items-center p-2">
+                        <div key={post.editId} className="relative aspect-3/4 w-6/10 bg-white rounded-[24px] overflow-hidden text-white flex flex-col items-center p-2">
                         <Banner 
                         className="min-h-20 max-h-60 w-full border rounded-[16px] overflow-hidden"
                         image={courses[post.code]?.source} 
@@ -62,7 +62,7 @@ const Lectures = () => {
     
                                  <h1>{post.lecturer}</h1>
                              </div>
-                             <div className='absolute aspect-1/1 w-4 z-60 bottom-6 right-2 overflow-hidden'
+                             <div className='absolute aspect-1/1 w-4 z-60 bottom-8 right-3 overflow-hidden'
                         onClick={() => navigate(`/admin/lectures/edit/${post.editId}`)}><img className='object-cover h-full w-full invert' src="/edit.png" /></div>
                         </div> 
                         

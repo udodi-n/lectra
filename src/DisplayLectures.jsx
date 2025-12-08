@@ -38,6 +38,7 @@ const DisplayLectures = () => {
 
         useEffect(() => {
                 async function updateStatus() {
+                    console.log("oi")
                     const now = new Date();
                     const nowTime = now.getTime();
 
@@ -70,9 +71,27 @@ const DisplayLectures = () => {
                             statusValue: "ended"
                         })
                     })
+
+                    const upq = query(
+                        collection(db, "lectures"),
+                        where("startTimeStamp", ">", nowTime)
+                    );
+
+                    const upSnap = await getDocs(upq)
+                    upSnap.forEach((item) => {
+                        const docRef = doc(db, "lectures", item.id);
+                        updateDoc(docRef, {
+                            status: "Coming up",
+                            statusValue: "coming_up"
+                        })
+                    })
                 }
 
                 updateStatus()
+
+                const interval = setInterval(updateStatus, 3000)
+
+                return () => clearInterval(interval)
         }, [])
     
         useEffect(() => {
@@ -100,7 +119,7 @@ const DisplayLectures = () => {
                         {posts.map(post => (
                                 <div key={post.editId} className="w-full grid place-items-center">
                                     <p className=" py-5 font-[Jetbrains_Mono] sm:w-3/5 w-3/5 md:w-4/10 rounded-2xl overflow-hidden text-white p-2">Date: {post.lectureDate}</p>
-                                    <div className="relative h-fit sm:w-3/5 w-3/5 md:w-4/10 bg-white rounded-2xl overflow-hidden text-white p-2">
+                                    <div className="relative aspect-3/4 sm:w-3/5 w-13/20 md:w-4/10 bg-white rounded-2xl overflow-hidden text-white p-2">
                                     <div className="absolute w-7/20 h-4 top-0 flex justify-center items-center text-[8px] right-0 my-5 mx-5 rounded-full text-white p-[0.1rem]"
                                           style={{ backgroundColor: color[post.statusValue]?.color }}> {post.status}</div>
                                     <Banner
