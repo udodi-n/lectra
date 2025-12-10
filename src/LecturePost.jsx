@@ -73,10 +73,10 @@ function LecturePost() {
         cs: {"code": "CST", "lecturer": "Dr Kingsley Maduabuchi", "source": "/cs.jpg"},
         phy101: {"code": "Physics 101", "lecturer": "Dr Kingsley", "source": "/phy101.jpg"},
         chem101: {"code": "Chem 101", "lecturer": "Dr. Ikeh", "source": "/chem101.jpg"},
-        gst121: {"code": "Use of Library: GST 121", "lecturer": "Sir Opah", "source": "/lib.jpg"},
+        gst121: {"code": "Use of Library", "lecturer": "Sir Opah", "source": "/lib.jpg"},
         stat: {"code": "Statistics", "lecturer": "Pahscal", "source": "/stat101.jpg"},
         math101: {"code": "Maths 101", "lecturer": "Mrs Ndidiamaka Edith", "source": "/math.jpg"},
-        gst111: {"code": "Communication in English: GST 111", "lecturer": "Dr. Ugochukwu", "source":"/english.jpg"}
+        gst111: {"code": "Communication in English", "lecturer": "Dr. Ugochukwu", "source":"/english.jpg"}
     }
 
  
