@@ -84,15 +84,17 @@ function LecturePost() {
     return (
         <div className="flex justify-center items-center min-h-screen bg-[#1c1c1c] font-[Google_Sans_Flex]  ">
             {/* Post Card Start */}
-            <div className='h-160 w-4/5 flex flex-col bg-white rounded-4xl justify-center items-center overflow-hidden '>
-                <Banner
-                image={courses[option]?.source}
-                className="w-full h-[40%] flex"
-                imgClassName="object-cover h-full w-full" 
-                />
+            <div className='min-h-120 max-h-165 w-4/5 flex flex-col bg-white rounded-4xl justify-center items-center overflow-hidden md:w-2/5'>
+                <div className="w-full h-[160px] bg-black">
+                  <Banner
+                    image={courses[option]?.source}
+                    className="w-full h-full flex overflow-hidden"
+                    imgClassName="object-cover w-full h-full"
+                    />
+                </div>
  
                 {/* Details Start */}
-                <form onSubmit={lectureEntry} className="w-4/5 justify-center items-center flex flex-col flex-1 gap-4">
+                <form onSubmit={lectureEntry} className="w-4/5 justify-center items-center flex flex-col flex-1 gap-4 py-3">
                     <select 
                     required
                     className="w-full p-2 focus:outline-none border-1 border-[#1c1c1c]"
@@ -111,6 +113,7 @@ function LecturePost() {
                                 {course.code}
                             </option>
                         ))}
+                        
                     </select>
                             <div className='w-full flex justify-around items-center'>
                                <input 
@@ -134,10 +137,12 @@ function LecturePost() {
                                 const selected = e.target.value
                                 setDate(selected); setTomorrow(selected)}}
                             value={date}
+                            required
                             />
                     <select onChange={(e) => {setValue(e.target.value); checkSomething()}} 
                     value={value}
                      className="w-full p-2 focus:outline-none border-1 border-[#1c1c1c]"
+                     required
                         >
                         <option value="">--Select a Location--</option>
                         <option value="Hall B">Hall B</option>
@@ -152,6 +157,7 @@ function LecturePost() {
                     value={lecturer}
                     onChange={(e) => setLecturer(e.target.value)} 
                     className="w-full focus:outline-none border-1  border-b-[#1c1c1c] border-r-[#1c1c1c] p-2"
+                    required 
                     />
 
                     <button className='px-3 py-2 mt-3 bg-[#1c1c1c] text-white w-full '>Post</button>

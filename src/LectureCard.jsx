@@ -6,7 +6,7 @@ function LectureCard({post, color, courses, isDisabled=false}) {
     return (
         <div  className="w-full flex flex-col justify-center items-center flex-1">
             <p className={` py-5 font-[Jetbrains_Mono] rounded-2xl overflow-hidden text-white p-2`}>Date: {post.lectureDate}</p>
-            <div className="relative bg-white md:w-3/10 w-3/4 flex flex-col flex-1 rounded-2xl overflow-hidden text-white p-2">
+            <div className="relative bg-white md:w-3/10 lg:w-2/10 w-3/4 flex flex-col flex-1 rounded-2xl overflow-hidden text-white p-2">
             <div className="absolute w-fit h-4 top-0 flex justify-center items-center text-[10px] right-0 my-5 mx-5 rounded-full text-white px-4 py-2"
                     style={{ backgroundColor: color[post.statusValue]?.color }}> {post.status}</div>
             <Banner

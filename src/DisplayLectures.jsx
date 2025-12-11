@@ -108,7 +108,7 @@ const DisplayLectures = () => {
             const q = query(
                 collection(db, "lectures"),
                 where("lectureDate", "in", [nowString, tomorrowString]),
-                orderBy("startTimeStamp", "asc") 
+                orderBy("startTimeStamp", "desc") 
             );
             const updatePosts = onSnapshot(q, (snapshot) => {
             const postArray = snapshot.docs.map( doc => ({id: doc.id, ...doc.data()}));

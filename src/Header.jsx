@@ -26,7 +26,7 @@ function Header() {
 
     return (
         <>
-        <div className="z-160 fixed w-4/5 md:w-3/5 mt-10 rounded-4xl flex justify-center items-center h-16 bg-white/10 backdrop-blur-md p-[0.3rem]"
+        <div className="z-160 fixed lg:w-1/4 w-4/5 md:w-3/5 mt-10 rounded-4xl flex justify-center items-center h-16 bg-white/10 backdrop-blur-md p-[0.3rem]"
         style={{
             transform: `translateY(${translateY}px)`,
             transition: "transform 0.3s ease"
