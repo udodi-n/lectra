@@ -1,7 +1,6 @@
 import { doc, collection, getDocs, onSnapshot, orderBy, query, where, updateDoc} from 'firebase/firestore'
 import {db} from './firebase'
 import { useState, useEffect } from 'react';
-import Wave from './Wave'
 import LectureGrid from './LectureGrid'
 import GridBackgroundDemo from './GridBackgroundDemo'
  
@@ -119,12 +118,11 @@ const DisplayLectures = () => {
         return () => updatePosts()
         }, [])  
     return (
-        <div className="relative z-40 w-full min-h-fit bg-transparent flex flex-col items-center pt-35 overflow-y-auto ">
+        <div className="relative z-40 w-full min-h-screen bg-transparent flex flex-col items-center pt-35 overflow-y-auto ">
             <h2 className="font-[Google_Sans_Flex] text-3xl text-white">Lectures</h2>
             <LectureGrid posts={posts} color={color} courses={courses}/>
             <GridBackgroundDemo className="absolute inset-0 -z-10 opacity-10" />
 
-            <Wave />
         </div>
     )
 }
