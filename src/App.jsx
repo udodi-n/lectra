@@ -15,6 +15,7 @@ import Lectures from './Lectures'
 import Banner from './Banner'
 import Book from './Book'
 import About from './About'
+import BookUpload from './BookUpload'
 
 function App() {
     const { id } = useParams()
@@ -44,6 +45,7 @@ function App() {
         <Route path = '/admin/books' element={<Book />} />
         </>
       )}
+      <Route path = '/admin/books/upload' element={<BookUpload />} />
       <Route path = '/about' element={<About />} />
       <Route path='*' element={<NotFound />} />
     </Routes>

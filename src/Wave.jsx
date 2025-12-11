@@ -1,6 +1,6 @@
 function Wave() {
     return (
-        <div className="w-full">
+        <div className="w-full flex items-end">
             <img src="/wave.svg" alt="" />
         </div>
     )
