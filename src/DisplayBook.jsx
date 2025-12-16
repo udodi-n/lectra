@@ -27,7 +27,7 @@ function DisplayBook() {
         <Header />
         <div className="w-full min-h-screen flex flex-col items-center justify-center pt-35 gap-5">
             <h2 className="font-[Google_Sans_Flex] text-3xl text-white">Books</h2>
-            <Grid posts={post} Card={BookCard}/>
+            <Grid posts={post} Card={BookCard} setBool={true}/>
             <GridBackgroundDemo className="absolute inset-0 z-10 opacity-10" />
 
         </div>
