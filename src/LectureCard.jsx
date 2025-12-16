@@ -1,9 +1,25 @@
 import Banner from './Banner'
 import { useNavigate } from 'react-router-dom'
 
-function LectureCard({post, color, courses, isDisabled=false}) {
+function LectureCard({post, isDisabled=false}) {
     const navigate = useNavigate()
+            const color = {
+                coming_up: {"color": "#bf4917"},
+                active: {"color": "#4cbb36"},
+                ended: {"color": "#d61818ff"}
+            }
+    
+            const courses = {
+                cs: {"source": "/cs.jpg"},
+                phy101: {"source": "/phy101.jpg"},
+                chem101: {"source": "/chem101.jpg"},
+                gst121: {"source": "/lib.jpg"},
+                stat: {"source": "/stat101.jpg"},
+                math101: {"source": "/math.jpg"},
+                gst111: {"source":"/english.jpg"}
+    }
     return (
+        
         <div  className="w-full flex flex-col justify-center items-center flex-1">
             <p className={` py-5 font-[Jetbrains_Mono] rounded-2xl overflow-hidden text-white p-2`}>Date: {post.lectureDate}</p>
             <div className="relative bg-white md:w-3/10 lg:w-2/10 w-3/4 flex flex-col flex-1 rounded-2xl overflow-hidden text-white p-2">

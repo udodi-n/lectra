@@ -85,7 +85,7 @@ function LecturePost() {
         <div className="flex justify-center items-center min-h-screen bg-[#1c1c1c] font-[Google_Sans_Flex]  ">
             {/* Post Card Start */}
             <div className='min-h-120 max-h-165 w-4/5 flex flex-col bg-white rounded-4xl justify-center items-center overflow-hidden md:w-2/5'>
-                <div className="w-full h-[160px] bg-black">
+                <div className="w-full h-[160px] bg-white">
                   <Banner
                     image={courses[option]?.source}
                     className="w-full h-full flex overflow-hidden"

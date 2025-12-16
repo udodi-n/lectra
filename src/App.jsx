@@ -16,6 +16,8 @@ import Banner from './Banner'
 import Book from './Book'
 import About from './About'
 import BookUpload from './BookUpload'
+import BookEdit from './BookEdit'
+import DisplayBook from './DisplayBook'
 
 function App() {
     const { id } = useParams()
@@ -42,10 +44,12 @@ function App() {
         <Route path = '/admin/assignments' element = {<Assignments />} />
         <Route path = '/admin/lectures/post' element = {<LecturePost />} />
         <Route path='/admin/lectures/edit/:id' element={<Edit />} />
+        <Route path='/admin/books/edit/:id' element={<BookEdit />} />
         <Route path = '/admin/books' element={<Book />} />
+        <Route path = '/admin/books/upload' element={<BookUpload />} />
         </>
       )}
-      <Route path = '/admin/books/upload' element={<BookUpload />} />
+      <Route path = '/books' element={<DisplayBook />} />
       <Route path = '/about' element={<About />} />
       <Route path='*' element={<NotFound />} />
     </Routes>

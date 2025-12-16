@@ -1,7 +1,8 @@
 import { doc, collection, getDocs, onSnapshot, orderBy, query, where, updateDoc} from 'firebase/firestore'
 import {db} from './firebase'
 import { useState, useEffect } from 'react';
-import LectureGrid from './LectureGrid'
+import Grid from './Grid'
+import LectureCard from './LectureCard'
 import GridBackgroundDemo from './GridBackgroundDemo'
  
 
@@ -10,21 +11,7 @@ const DisplayLectures = () => {
         const [posts, setPosts] = useState([]) 
         
 
-        const color = {
-            coming_up: {"color": "#bf4917"},
-            active: {"color": "#4cbb36"},
-            ended: {"color": "#d61818ff"}
-        }
 
-        const courses = {
-            cs: {"source": "/cs.jpg"},
-            phy101: {"source": "/phy101.jpg"},
-            chem101: {"source": "/chem101.jpg"},
-            gst121: {"source": "/lib.jpg"},
-            stat: {"source": "/stat101.jpg"},
-            math101: {"source": "/math.jpg"},
-            gst111: {"source":"/english.jpg"}
-}
         const [date, setDate] = useState(new Date())
 
 
@@ -120,7 +107,7 @@ const DisplayLectures = () => {
     return (
         <div className="relative z-40 w-full min-h-screen bg-transparent flex flex-col items-center pt-35 overflow-y-auto ">
             <h2 className="font-[Google_Sans_Flex] text-3xl text-white">Lectures</h2>
-            <LectureGrid posts={posts} color={color} courses={courses}/>
+            <Grid posts={posts} Card={LectureCard} setBool={true}/>
             <GridBackgroundDemo className="absolute inset-0 -z-10 opacity-10" />
 
         </div>

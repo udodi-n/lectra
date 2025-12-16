@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import { db } from './firebase'
-import LectureGrid from './LectureGrid'
+import Grid from './Grid'
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
+import PostBtn from './PostBtn'
 
 const Lectures = () => {
 
@@ -43,13 +44,11 @@ const Lectures = () => {
         <div className="flex flex-col justify-center items-center relative min-h-screen bg-[#1c1c1c] font-[Google_Sans_Flex]">
         <div className="text-white text-5xl py-8 font-[Instrument_Serif] underline">Lectures</div>
             {/* Post button start */}
-            <button className="z-40 h-15 w-15 fixed bottom-10 right-10 rounded-full bg-white text-4xl"
-            onClick={() => navigate('/admin/lectures/post')}
-            >+</button>
+                <PostBtn route={'/admin/lectures/post'}/>
             {/* Post button end */}
 
             {/* Post Visbility  Start*/}
-            <LectureGrid posts={posts} courses={courses} color={color} isEditing={true}/>
+            <Grid posts={posts}/>
         </div>
     ) 
 }
