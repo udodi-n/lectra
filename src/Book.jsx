@@ -1,5 +1,6 @@
-import { doc, collection, getDocs, deleteDoc, onSnapshot } from 'firebase/firestore'
-import { db, auth } from './firebase.js'
+import { collection, getDocs, deleteDoc, onSnapshot } from 'firebase/firestore'
+import { db } from './firebase.js'
+import Title from './Title'
 import BookCard from './BookCard'
 import Grid from './Grid'
 import PostBtn from './PostBtn'
@@ -20,7 +21,8 @@ function Book(){
     }, [])
 
     return(
-        <div className="min-h-screen bg-[#1c1c1c] mt-0 lg:p-20">
+        <div className="min-h-screen bg-[#1c1c1c] flex flex-col items-center gap-8 mt-0 lg:p-20">
+            <Title title="Books" />
             <PostBtn route={'/admin/books/upload'}/>
             <Grid posts={post} Card={BookCard}  />
         </div>

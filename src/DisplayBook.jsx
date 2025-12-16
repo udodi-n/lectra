@@ -3,6 +3,7 @@ import BookCard from './BookCard'
 import Header from './Header'
 import { useState, useEffect } from 'react'
 import {db} from './firebase'
+import Title from './Title'
 import { onSnapshot, collection } from 'firebase/firestore'
 import Footer from './Footer'
 import Wave from './Wave'
@@ -25,8 +26,8 @@ function DisplayBook() {
     return(
         <div className="w-full h-fit flex bg-[#1c1c1c] flex-col items-center">
         <Header />
-        <div className="w-full min-h-screen flex flex-col items-center justify-center pt-35 gap-5">
-            <h2 className="font-[Google_Sans_Flex] text-3xl text-white">Books</h2>
+        <div className="w-full min-h-screen flex flex-col items-center justify-center pt-35">
+            <Title title="Books" />
             <Grid posts={post} Card={BookCard} setBool={true}/>
             <GridBackgroundDemo className="absolute inset-0 z-10 opacity-10" />
 

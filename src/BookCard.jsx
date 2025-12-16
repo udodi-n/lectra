@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom'
 function BookCard({post, isDisabled=false}) {
     const navigate = useNavigate()
         return (
-            <div className="w-full flex flex-col justify-center items-center flex-1 font-[Google_Sans_Flex]">
-               
-                <div className="relative bg-white md:w-3/5 lg:w-7/10 w-3/4 flex flex-col flex-1 rounded-2xl overflow-hidden text-white p-2 mt-4 ">
-              
+            <div className="w-full h-full flex flex-col justify-center items-center flex-1 font-[Google_Sans_Flex]">
+            
+                <div className="relative bg-white w-full h-full flex flex-col flex-1 rounded-2xl overflow-hidden text-white p-2 mt-4 ">
+            
                 <div className="h-50 border-1 rounded-lg border-black overflow-hidden">
                     <img src={post.imgurl} className="object-cover w-full h-full" alt="" />
                 </div>

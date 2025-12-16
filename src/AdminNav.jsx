@@ -14,7 +14,7 @@ const AdminNav = () => {
 
             <div className="flex-1 w-full flex justify-center items-center">
                 {/* Section Start */}
-                <div className='w-4/5 flex flex-col justify-center items-center gap-6 '>
+                <div className='w-4/5 lg:w-1/5 flex flex-col justify-center items-center gap-6 '>
                     {/* Lecture Section Start*/}
                     <div className="border-1 border-white flex justify-around w-full items-center">
                         <h2 className='text-3xl'>Lectures</h2>

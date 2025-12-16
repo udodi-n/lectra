@@ -2,30 +2,17 @@ import { doc, collection, getDocs, onSnapshot, orderBy, query, where, updateDoc}
 import {db} from './firebase'
 import { useState, useEffect } from 'react';
 import Grid from './Grid'
+import Title from './Title'
 import LectureCard from './LectureCard'
 import GridBackgroundDemo from './GridBackgroundDemo'
- 
 
 const DisplayLectures = () => {
-    const [network, setNetwork] = useState(true)
+    const [nothing, setNothing] = useState(false)
         const [posts, setPosts] = useState([]) 
         
 
 
         const [date, setDate] = useState(new Date())
-
-
-
-        // useEffect(() => {
-        //     const windowUpdate = []
-        //     function handleScroll() {
-        //         windowUpdate.push(window.scrollY)
-        //         console.log(windowUpdate)
-        //     }
-        //     window.addEventListener("scroll", handleScroll) 
-            
-        //     return () => window.removeEventListener("scroll", handleScroll)
-        // }, [])
 
         useEffect(() => {
                 async function updateStatus() {
@@ -43,9 +30,9 @@ const DisplayLectures = () => {
                     const snap = await getDocs(q);
                     snap.forEach((item) => {
                         const docRef = doc(db, "lectures", item.id);
-                         updateDoc(docRef, {
-                         status: "Active",
-                         statusValue: "active"
+                            (docRef, {
+                            status: "Active",
+                            statusValue: "active"
                         })
                     })
 
@@ -97,6 +84,7 @@ const DisplayLectures = () => {
                 where("lectureDate", "in", [nowString, tomorrowString]),
                 orderBy("startTimeStamp", "desc") 
             );
+            
             const updatePosts = onSnapshot(q, (snapshot) => {
             const postArray = snapshot.docs.map( doc => ({id: doc.id, ...doc.data()}));
             setPosts(postArray);
@@ -104,11 +92,26 @@ const DisplayLectures = () => {
     );
         return () => updatePosts()
         }, [])  
+
+        useEffect(() => {
+            function checkLength() {
+                if(posts.length === 0) {
+                    setNothing(true)
+                }
+            }
+
+            return () => checkLength()
+        },[posts])
     return (
-        <div className="relative z-40 w-full min-h-screen bg-transparent flex flex-col items-center pt-35 overflow-y-auto ">
-            <h2 className="font-[Google_Sans_Flex] text-3xl text-white">Lectures</h2>
+        <div className="relative z-40 w-full min-h-screen bg-transparent flex flex-col justify-center items-center pt-35 overflow-y-auto ">
+            <Title title="Lectures" />
             <Grid posts={posts} Card={LectureCard} setBool={true}/>
             <GridBackgroundDemo className="absolute inset-0 -z-10 opacity-10" />
+
+            {/* <div className={`${nothing? '' : 'hidden'} w-full flex flex-col justify-center items-center`}>
+                <h1 className="text-3xl text-white/30">Nothing to see here</h1>
+                <img className="opacity-30 " src="/nun.png"/>
+            </div> */}
 
         </div>
     )

@@ -2,13 +2,14 @@ import LectureCard from './LectureCard'
 
 function Grid({posts, Card = LectureCard, setBool=false}) {
     return (
-        <div className="p-2 w-full grid text-white"
-            style={{display:"grid",
-                    gridTemplateColumns:"repeat(auto-fit,minmax(220px, auto)) ",
-                    gridAutoRows: "1fr"
+        <div className="w-full grid place-items-center gap-5 text-white"
+            style={{
+                    gridTemplateColumns:"repeat(auto-fit,250px) ",
+                    justifyContent: "center",
+            
             }}>
 
-             {posts.map(post => (
+            {posts.map(post => (
                 <Card key={post.id} post={post} isDisabled={setBool}/>
             ))}
 
