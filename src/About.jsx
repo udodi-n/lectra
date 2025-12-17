@@ -9,9 +9,9 @@ return (
                 <p>
                     Lectra shows you what lectures you have today or the next day so <span className="bg-blue-700">you
                         avoid being a victim to retards who get their lecture updates from other department groups
-                    </span> asking questions about what
-                    lectures you have in the group chat .
+                    </span> 
                 </p>
+                <p>You're welcome</p>
             </div>
             </div>
 
