@@ -104,14 +104,14 @@ const DisplayLectures = () => {
         },[posts])
     return (
         <div className="relative z-40 w-full min-h-screen bg-transparent flex flex-col justify-center items-center pt-35 overflow-y-auto ">
-            <Title title="Lectures" />
+            <Title setBool={!nothing} title="Lectures" />
             <Grid posts={posts} Card={LectureCard} setBool={true}/>
             <GridBackgroundDemo className="absolute inset-0 -z-10 opacity-10" />
 
-            {/* <div className={`${nothing? '' : 'hidden'} w-full flex flex-col justify-center items-center`}>
+            <div className={`${nothing? '' : 'hidden'} gap-5 w-full flex flex-col justify-center items-center`}>
                 <h1 className="text-3xl text-white/30">Nothing to see here</h1>
                 <img className="opacity-30 " src="/nun.png"/>
-            </div> */}
+            </div>
 
         </div>
     )
