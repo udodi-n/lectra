@@ -97,8 +97,10 @@ const DisplayLectures = () => {
             function checkLength() {
                 if(posts.length === 0) {
                     setNothing(true)
+                    console.log('0')
                 } else {
                     setNothing(false)
+                    console.log('something')
                 }
             }
 
@@ -106,16 +108,16 @@ const DisplayLectures = () => {
         },[posts])
     return (
         <div className="relative z-40 w-full min-h-screen bg-transparent flex flex-col justify-center items-center pt-35 overflow-y-auto ">
-            <Title setBool={!nothing} title="Lectures" />
+            <Title title="Lectures" />
             <Grid posts={posts} Card={LectureCard} setBool={true}/>
             <GridBackgroundDemo className="absolute inset-0 -z-10 opacity-10" />
-
+{/* 
             <div className={`${nothing? '' : 'hidden'} z-100 gap-5 w-full flex flex-col justify-center items-center`}>
                 <h1 className="text-3xl text-white/30">Nothing to see here</h1>
                 <img className="opacity-50" src="/nun.png"/>
-            </div>
+            </div> */}
 
-        </div>
+        </div> 
     )
 }
 

@@ -2,6 +2,7 @@ import DisplayLectures from './DisplayLectures'
 import Header from './Header'
 import Footer from './Footer'
 import Wave from './Wave'
+import WaveInv from './WaveInv'
 import { Analytics } from "@vercel/analytics/react";
 
 import ReferBook from './ReferBook'
@@ -14,6 +15,7 @@ function Home() {
             <DisplayLectures />
             <Wave />
             <ReferBook />
+            <WaveInv />
             <Footer />
         </div>
         </>
