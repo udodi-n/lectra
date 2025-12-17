@@ -97,6 +97,8 @@ const DisplayLectures = () => {
             function checkLength() {
                 if(posts.length === 0) {
                     setNothing(true)
+                } else {
+                    setNothing(false)
                 }
             }
 
