@@ -6,11 +6,9 @@ return (
             <img src="/tag.png" className="invert" />
             <img src="/fd.png" className="" />
             <div className="w-full flex flex-col gap-2">
-                <p>Devjachi had the idea.</p>
-                <p> I executed it.</p>
                 <p>
                     Lectra shows you what lectures you have today or the next day so <span className="bg-blue-700">you
-                        don't have to look like an idiot
+                        avoid being a victim to retards who get their lecture updates from other department groups
                     </span> asking questions about what
                     lectures you have in the group chat .
                 </p>
