@@ -1,6 +1,6 @@
 import BookDef from './BookDef'
 import { useState, useEffect } from 'react'
-import {db} from './firebase'
+import {db} from '../firebase'
 import { getDoc, doc, collection, query, where, updateDoc } from 'firebase/firestore'
 
 import { useParams, useNavigate } from 'react-router-dom'

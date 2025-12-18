@@ -1,4 +1,4 @@
-import {db} from './firebase'
+import {db} from '../firebase'
 import { setDoc, collection, doc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import BookDef from './BookDef'

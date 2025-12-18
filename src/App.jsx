@@ -1,23 +1,22 @@
 import { useState, useEffect } from 'react'
 import { auth } from './firebase'
 import { onAuthStateChanged  } from 'firebase/auth'
-import { BrowserRouter, Routes, Route, useParams } from 
+import { Routes, Route, useParams } from 
 'react-router-dom'
-import Home from './Home'
-import Admin from './Admin'
-import AdminNav from './AdminNav'
-import NotFound from './NotFound'
-import Assignments from './Assignments'
+import Home from './pages/Home'
+import Admin from './pages/Admin'
+import AdminNav from './pages/AdminNav'
+import NotFound from './pages/NotFound'
+import Assignments from './pages/Assignments'
 import './App.css' 
-import Edit from './Edit'
-import LecturePost from './LecturePost'
-import Lectures from './Lectures'
-import Banner from './Banner'
-import Book from './Book'
-import About from './About'
-import BookUpload from './BookUpload'
-import BookEdit from './BookEdit'
-import DisplayBook from './DisplayBook'
+import LectureEdit from './pages/LectureEdit' 
+import LecturePost from './pages/LecturePost'
+import Lectures from './pages/Lectures'
+import Book from './pages/Book'
+import About from './pages/About'
+import BookUpload from './components/BookUpload'
+import BookEdit from './components/BookEdit'
+import DisplayBook from './components/DisplayBook'
 
 function App() {
     const { id } = useParams()
@@ -43,7 +42,7 @@ function App() {
         <Route path = '/admin/lectures' element = {<Lectures />} />
         <Route path = '/admin/assignments' element = {<Assignments />} />
         <Route path = '/admin/lectures/post' element = {<LecturePost />} />
-        <Route path='/admin/lectures/edit/:id' element={<Edit />} />
+        <Route path='/admin/lectures/edit/:id' element={<LectureEdit />} />
         <Route path='/admin/books/edit/:id' element={<BookEdit />} />
         <Route path = '/admin/books' element={<Book />} />
         <Route path = '/admin/books/upload' element={<BookUpload />} />
