@@ -30,7 +30,7 @@ const DisplayLectures = () => {
                     const snap = await getDocs(q);
                     snap.forEach((item) => {
                         const docRef = doc(db, "lectures", item.id);
-                            (docRef, {
+                            updateDoc(docRef, {
                             status: "Active",
                             statusValue: "active"
                         })
