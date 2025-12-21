@@ -24,7 +24,7 @@ function Book() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#1c1c1c] flex flex-col items-center gap-8 mt-0 lg:p-20">
+    <div className="min-h-screen bg-[#fcfcfc] dark:bg-[#1c1c1c] py-10 flex flex-col items-center gap-8 mt-0 lg:p-20">
       <Title title="Books" />
       <PostBtn route={"/admin/books/upload"} />
       <Grid posts={post} Card={BookCard} />

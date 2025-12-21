@@ -8,7 +8,7 @@ function Footer() {
                 <li><a target="_blank" href="mailto:itsudodi@gmail.com">Contact</a></li>
             </ul>
             <p className="py-4">© 2025 Cracked Retards</p>
-            
+            <ToggleTheme />
         </div>
         </>
     )

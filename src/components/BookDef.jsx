@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import upload from '../assets/upload.png'
+
 function BookDef({name = '', cost = '', img ='', action, btn}) {
 
     const [book, setBook] = useState(name)
@@ -65,7 +67,7 @@ function BookDef({name = '', cost = '', img ='', action, btn}) {
                     >
                     <div className="bg-white gap-4 p-1 border-1 border-black flex">
                         <span className=" ">Click to Upload</span>
-                        <img src="/upload.png" className="aspect-square w-5" alt="" />
+                        <img src={upload} className="aspect-square w-5" alt="" />
                     </div>
                     <input className="absolute inset-0 opacity-0" type="file" onChange={handleFileUpload} accept="image/*"/>
                     </div>
@@ -74,9 +76,8 @@ function BookDef({name = '', cost = '', img ='', action, btn}) {
                         <input className="mt-10 w-full px-3 py-2 border-1 border-black focus:outline-none" type="text" label="Name" onChange={(e) => setBook(e.target.value)} value={book} placeholder="Fundamental Mechanics"/>
 
                         {/* Price */}
-                        <input className="w-full flex px-3 py-2 border-1 border-black focus:outline-none" type="text" label="Price" onChange={(e) => setPrice(e.target.value)} value={price} placeholder="N6700"/>
+                        <input className="w-full flex px-3 py-2 border-1 border-black focus:outline-none" type="number" label="Price" onChange={(e) => setPrice(e.target.value)} value={price} placeholder="6700"/>
                         <button className="bg-black w-full py-3 text-white">{btn}</button>
-
 
                     </div>
                 </form>
