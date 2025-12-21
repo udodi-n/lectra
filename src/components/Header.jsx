@@ -26,14 +26,14 @@ function Header() {
 
     return (
         <>
-        <div className="z-160 fixed lg:w-1/4 w-4/5 md:w-3/5 mt-10 rounded-4xl flex justify-center items-center h-16 bg-white/10 backdrop-blur-md p-[0.3rem]"
+        <div className="z-160 fixed lg:w-1/4 w-4/5 md:w-3/5 mt-10 rounded-4xl flex font-[Google_Sans_Flex] justify-center items-center h-16 bg-black/10 dark:bg-white/10 backdrop-blur-md p-[0.3rem] "
         style={{
             transform: `translateY(${translateY}px)`,
             transition: "transform 0.3s ease"
         }}>
-            <div className="rounded-4xl bg-white/10 h-full w-full flex items-center justify-around">
-                <h1 className="font-[Instrument_Serif] text-white text-3xl">Lectra</h1>
-                <ul className="flex gap-4 text-white">
+            <div className="rounded-4xl bg-black/10 h-full w-full flex items-center justify-around dark:invert">
+                <h1 className="font-[Instrument_Serif] text-3xl">Lectra</h1>
+                <ul className="flex gap-4">
                     <li><a href="/">Home</a></li> 
                     <li><a href="/books">Books</a></li>
                 </ul>

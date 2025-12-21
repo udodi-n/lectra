@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { db } from "../firebase";
 import Grid from "../components/Grid";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import ToggleTheme from '../components/ToggleTheme'
 import PostBtn from "../components/PostBtn";
 
 const Lectures = () => {
@@ -39,8 +40,8 @@ const Lectures = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center relative min-h-screen bg-[#1c1c1c] font-[Google_Sans_Flex]">
-      <div className="text-white text-5xl py-8 font-[Instrument_Serif] underline">
+    <div className="flex flex-col justify-center items-center relative min-h-screen bg-[#f7f7f7] dark:bg-[#1c1c1c] font-[Google_Sans_Flex]">
+      <div className="dark:text-white text-5xl py-8 font-[Instrument_Serif] underline">
         Lectures
       </div>
       {/* Post button start */}
@@ -49,6 +50,7 @@ const Lectures = () => {
 
       {/* Post Visbility  Start*/}
       <Grid posts={posts} />
+      <ToggleTheme />
     </div>
   );
 };

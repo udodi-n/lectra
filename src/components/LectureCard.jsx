@@ -29,11 +29,15 @@ function LectureCard({ post, isDisabled = false }) {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center flex-1 ">
       <p
-        className={` py-5 font-[Jetbrains_Mono] rounded-2xl overflow-hidden text-white p-2`}
+        className={` py-5 font-[Jetbrains_Mono] rounded-2xl overflow-hidden text-black dark:text-white p-2`}
       >
         Date: {post.lectureDate}
       </p>
-      <div className="relative bg-white w-full flex-col flex-1 rounded-2xl overflow-hidden text-white p-2">
+      <div className="relative bg-[#fff] dark:bg-white w-full flex-col flex-1 rounded-[20px] overflow-hidden text-white p-2"
+      style={{
+        boxShadow: "0 10px 15px rgba(0, 0, 0, 0.1)",
+      }}
+      >
         <div
           className="absolute w-fit h-4 top-0 flex justify-center items-center text-[10px] right-0 my-5 mx-5 rounded-full text-white px-4 py-2"
           style={{ backgroundColor: color[post.statusValue]?.color }}
@@ -43,7 +47,7 @@ function LectureCard({ post, isDisabled = false }) {
         </div>
         <Banner
           image={courses[post.code]?.source}
-          className="min-h-30 max-h-40 w-full border rounded-[16px] overflow-hidden "
+          className="min-h-30 max-h-40 w-full border rounded-[12px] overflow-hidden "
           imgClassName=" w-full object-cover object-center"
         />
         <div className="relative w-full mx-auto py-5 rounded-2xl flex flex-col flex-1 justify-center px-2 items-start h-fit text-black">
@@ -64,8 +68,8 @@ function LectureCard({ post, isDisabled = false }) {
             onClick={() => navigate(`/admin/lectures/edit/${post.editId}`)}
           >
             <img
-              className="object-cover h-full w-full invert"
-              src= {edit} 
+              className="object-cover h-full w-full dark:invert"
+              src={edit}
             />
           </div>
         </div>

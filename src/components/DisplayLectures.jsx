@@ -114,10 +114,10 @@ const DisplayLectures = () => {
     return () => checkLength();
   }, [posts]);
   return (
-    <div className="relative z-40 w-full min-h-screen bg-transparent flex flex-col justify-center items-center pt-35 overflow-y-auto ">
+    <div className="relative z-40 w-full min-h-screen bg-[#ececec] dark:bg-transparent flex flex-col justify-center items-center pt-35 overflow-y-auto ">
       <Title title="Lectures" />
       <Grid posts={posts} Card={LectureCard} setBool={true} />
-      <GridBackgroundDemo className="absolute inset-0 -z-10 opacity-10" />
+      <GridBackgroundDemo className=" absolute inset-0 -z-10 opacity-10" />
       {/* 
             <div className={`${nothing? '' : 'hidden'} z-100 gap-5 w-full flex flex-col justify-center items-center`}>
                 <h1 className="text-3xl text-white/30">Nothing to see here</h1>

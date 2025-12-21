@@ -5,7 +5,12 @@ function BookCard({ post, isDisabled = false }) {
   const navigate = useNavigate();
   return (
     <div className="w-full h-full flex flex-col justify-center items-center flex-1 font-[Google_Sans_Flex]">
-      <div className="relative bg-white w-full h-full flex flex-col flex-1 rounded-2xl overflow-hidden text-white p-2 mt-4 ">
+      <div
+        className="relative bg-white w-full h-full flex flex-col flex-1 rounded-2xl overflow-hidden text-white p-2 mt-4 "
+        style={{
+          boxShadow: "0 10px 15px rgba(0, 0, 0, 0.1)",
+        }}
+      >
         <div className="h-50 border-1 rounded-lg border-black overflow-hidden">
           <img
             src={post.imgurl}

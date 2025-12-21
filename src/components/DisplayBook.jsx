@@ -7,7 +7,9 @@ import Title from "./Title";
 import { onSnapshot, collection } from "firebase/firestore";
 import Footer from "./Footer";
 import Wave from "./Wave";
+import WaveInv from './WaveInv'
 import GridBackgroundDemo from "./GridBackgroundDemo";
+import ToggleTheme from "./ToggleTheme";
 
 function DisplayBook() {
   const [post, setPost] = useState([]);
@@ -26,7 +28,7 @@ function DisplayBook() {
     displayBooks();
   }, []);
   return (
-    <div className="w-full h-fit flex bg-[#1c1c1c] flex-col items-center">
+    <div className="w-full h-fit flex bg-[#fff] dark:bg-[#1c1c1c] flex-col items-center">
       <Header />
       <div className="w-full min-h-screen flex flex-col items-center justify-center pt-35">
         <Title title="Books" />
@@ -34,7 +36,9 @@ function DisplayBook() {
         <GridBackgroundDemo className="absolute inset-0 z-10 opacity-10" />
       </div>
       <Wave />
+      <WaveInv />
       <Footer />
+      <ToggleTheme />
     </div>
   );
 }
