@@ -26,10 +26,12 @@ function ToggleTheme({hidden=true}) {
     return (
       <button
         onClick={toggletheme}
-        className={` ${hidden? 'hidden' : ''} fixed z-999 bottom-0  left-0 p-8`}
+        className={` ${
+          hidden ? "hidden" : ""
+        } fixed z-999 bottom-0  left-0 p-4`}
       >
         <div
-          className="w-10 h-10 backdrop-invert"
+          className="aspect-square w-8 backdrop-invert"
           style={{
             WebkitMaskImage: `url(${toggle})`,
             maskImage: `url(${toggle})`,

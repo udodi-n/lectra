@@ -105,9 +105,10 @@ function LectureDef({action, courseProp, timeProp, finishProp, dateProp, locatio
         console.log(setTom);
     }
     return (
-        <div className="flex justify-center items-center min-h-screen bg-[#1c1c1c] font-[Google_Sans_Flex]  ">
+        <div className="flex justify-center items-center min-h-screen bg-[#1c1c1c] font-[Google_Sans_Flex]">
       {/* Post Card Start */}
-        <div className="w-90 flex flex-col bg-white rounded-[36px] justify-center items-center overflow-hidden p-2 ">
+        <div className="flex flex-col bg-white rounded-[36px] justify-center items-center overflow-hidden p-2" 
+        style={{width: "calc(20rem + 0.8vw)"}}>
         <div className="w-full h-[170px] bg-white rounded-[28px] overflow-hidden">
             <Banner
             image={courses[option]?.source}
@@ -119,7 +120,7 @@ function LectureDef({action, courseProp, timeProp, finishProp, dateProp, locatio
         {/* Details Start */}
         <form
             onSubmit={handleFormSubmit}
-            className="w-4/5 justify-center items-center flex flex-col flex-1 gap-4 py-3"
+            className="w-full justify-center items-center flex flex-col flex-1 gap-4 p-3"
         >
             <select
             required
@@ -189,7 +190,7 @@ function LectureDef({action, courseProp, timeProp, finishProp, dateProp, locatio
             required
             />
 
-            <button className="px-3 py-2 mt-3 bg-[#1c1c1c] text-white w-full ">
+            <button className="px-3 rounded-[28px] py-3 mt-3 bg-[#1c1c1c] text-white w-full ">
             Post
             </button>
         </form>

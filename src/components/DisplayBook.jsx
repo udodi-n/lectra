@@ -28,9 +28,9 @@ function DisplayBook() {
     displayBooks();
   }, []);
   return (
-    <div className="w-full h-fit flex bg-[#cdcdcd] dark:bg-[#1c1c1c] flex-col items-center">
+    <div className="w-full h-fit flex bg-[#fff] dark:bg-[#1c1c1c] flex-col items-center">
       <Header />
-      <div className=" bg-[#dddddd] w-full min-h-screen flex flex-col items-center justify-center pt-35">
+      <div className="w-full min-h-screen flex flex-col items-center justify-center pt-35">
         <Title title="Books" />
         <Grid posts={post} Card={BookCard} setBool={true} />
         <GridBackgroundDemo className="absolute inset-0 z-10 opacity-10" />

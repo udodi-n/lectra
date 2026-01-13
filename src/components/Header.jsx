@@ -34,8 +34,8 @@ function Header() {
             <div className="rounded-4xl bg-black/10 h-full w-full flex items-center justify-around dark:invert">
                 <h1 className="font-[Instrument_Serif] text-3xl">Lectra</h1>
                 <ul className="flex gap-4">
-                    <li><a href="/">Home</a></li> 
                     <li><a href="/books">Books</a></li>
+                    <li><a target="_blank" href="mailto:itsudodi@gmail.com">Help</a></li>
                 </ul>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import Banner from "./Banner";
 import { useNavigate } from "react-router-dom";
+import edit from '../assets/edit.png'
 
 function BookCard({ post, isDisabled = false }) {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ function BookCard({ post, isDisabled = false }) {
           >
             <img
               className="object-cover h-full w-full invert"
-              src="/edit.png"
+              src={edit}
             />
           </div>
         </div>

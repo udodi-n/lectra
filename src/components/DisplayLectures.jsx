@@ -114,7 +114,7 @@ const DisplayLectures = () => {
     return () => checkLength();
   }, [posts]);
   return (
-    <div className="relative z-40 w-full min-h-screen bg-[#ececec] dark:bg-transparent flex flex-col justify-center items-center pt-35 overflow-y-auto ">
+    <div className="relative z-40 w-full min-h-screen bg-[#fff] dark:bg-transparent flex flex-col justify-center items-center pt-35 overflow-y-auto ">
       <Title title="Lectures" />
       <Grid posts={posts} Card={LectureCard} setBool={true} />
       <GridBackgroundDemo className=" absolute inset-0 -z-10 opacity-10" />

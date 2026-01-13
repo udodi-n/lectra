@@ -11,10 +11,10 @@ import ReferBook from "../components/ReferBook";
 function Home() {
   return (
     <>
-      <div className="relative min-h-screen flex flex-col items-center bg-[#dddddd] dark:bg-[#1c1c1c] font-[Google_Sans_Flex]">
+      <div className="relative min-h-screen flex flex-col items-center bg-[#fff] dark:bg-[#1c1c1c] font-[Google_Sans_Flex]">
         <Header />
         <DisplayLectures />
-        <Wave />
+        <Wave />                 
         <ReferBook />
         <WaveInv />
         <Footer />

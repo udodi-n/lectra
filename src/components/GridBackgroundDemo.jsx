@@ -13,7 +13,7 @@ function GridBackgroundDemo({ className }) {
         )}
       />
       {/* Radial gradient for the container to give a faded look */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[#1c1c1c] [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] dark:bg-[#1c1c1c]"></div>
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[#fff] [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)] dark:bg-[#1c1c1c]"></div>
     </div>
   );
 }

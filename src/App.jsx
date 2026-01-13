@@ -18,10 +18,14 @@ import About from './pages/About'
 import BookUpload from './components/BookUpload'
 import BookEdit from './components/BookEdit'
 import DisplayBook from './components/DisplayBook'
+import Terms from './pages/Terms'
 
 function App() {
     const { id } = useParams()
     const [user, setCurrentUser] = useState(null)
+    const adminEmails = [
+      "itsudodi@gmail.com",
+    ];
 
     useEffect(() => {
       const unsub = onAuthStateChanged(auth, (currentUser) => {
@@ -37,7 +41,7 @@ function App() {
     <Routes>
       <Route path = '/' element={<Home />} />
       <Route path = '/admin' element={<Admin />} />
-      {user && user.email === "itsudodi@gmail.com" && (
+      {user && adminEmails.includes(user.email) && (
         <>
         <Route path = '/admin/home' element={<AdminNav />} />
         <Route path = '/admin/lectures' element = {<Lectures />} />
@@ -50,6 +54,7 @@ function App() {
         </>
       )}
       <Route path = '/books' element={<DisplayBook />} />
+      <Route path = '/terms' element={<Terms />} />
       <Route path = '/about' element={<About />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
